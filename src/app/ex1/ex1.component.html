@@ -1,0 +1,69 @@
+<div class="inputForm">
+  <label for="user-name">User name: </label>
+  <input id="user-name" [(ngModel)]="userName" placeholder="User name" />
+</div>
+
+<p id="outputMessage">Hello {{ userName | uppercase }} !</p>
+
+<!-- Comment line  
+<div>
+  <form action="/action_page.php">
+    <label for="cars">Choose a font:</label>
+    <select
+      [(ngModel)]="selectedFont1"
+      onchange="changefont(selectedFont1)"
+      id="fontSelector"
+    >
+      <option value="verdana">Verdana</option>
+      <option value="impact">Impact</option>
+      <option value="monospace">Monospace</option>
+      <option value="courier">Courier</option>
+    </select>
+    <input type="submit" onclick="getFontValue()" />
+  </form>
+</div>
+-->
+
+<div class="parts">
+  <mat-form-field>
+    <mat-label>Select a font</mat-label>
+    <mat-select
+      [(value)]="selectedFont"
+      (selectionChange)="changefont(selectedFont)"
+      disableOptionCentering
+      panelClass="listeDer"
+    >
+      <mat-option>None</mat-option>
+      <mat-option value="Verdana">Verdana</mat-option>
+      <mat-option value="Impact">Impact</mat-option>
+      <mat-option value="Monospace">Monospace</mat-option>
+      <mat-option value="Courier">Courier</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="inputForm">
+  <label for="font-size">Select a font size: </label>
+  <input
+    id="font-size"
+    [(ngModel)]="fontSize"
+    placeholder="Font size"
+    (ngModelChange)="changeSize(fontSize)"
+  />
+  <!--
+  <input type="submit" onclick="changeSize(fontSize)" value="go" />
+  -->
+</div>
+
+<div class="inputForm">
+  <mat-radio-group
+    [(ngModel)]="selectedLayout"
+    label="Select Layout"
+    (ngModelChange)="setLayout(selectedLayout)"
+  >
+    Select layout:
+    <mat-radio-button value="1">Left</mat-radio-button>
+    <mat-radio-button value="2">Center</mat-radio-button>
+    <mat-radio-button value="3">Right</mat-radio-button>
+  </mat-radio-group>
+</div>

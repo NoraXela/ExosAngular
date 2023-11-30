@@ -1,0 +1,29 @@
+<div class="calcBlock">
+  <form #simpleForm="ngForm" (ngSubmit)="calculate(simpleForm.value!)">
+    <input type="number" ngModel name="no1" placeholder="No 1" />
+    <select ngModel name="selectedOperation">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input type="number" ngModel name="no2" placeholder="No 2" />
+    <button>Calculate</button>
+  </form>
+</div>
+
+<div class="result">
+  <h3>Result: {{ result }}</h3>
+</div>
+
+<div class="history">
+  <h2>History</h2>
+  <!--  ngFor part  -->
+  <app-operation-history
+    *ngFor="let operation of operationList"
+    [operation]="operation"
+    [operationList]="operationList"
+  >
+    >
+  </app-operation-history>
+</div>

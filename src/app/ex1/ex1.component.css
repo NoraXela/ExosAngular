@@ -1,0 +1,19 @@
+.inputForm {
+  margin-top: 10px;
+  font-family: sans-serif;
+}
+
+.parts {
+  margin-top: 10px;
+}
+
+#outputMessage {
+  color: rgb(104, 43, 165);
+  /*font-size: 50px;*/
+  /*text-align: right;*/
+}
+
+.listeDer {
+  /*margin-top: 10px;*/
+  margin-bottom: 10px;
+}
