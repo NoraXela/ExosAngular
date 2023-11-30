@@ -14,9 +14,19 @@ import { MatRadioModule } from '@angular/material/radio';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ex2Component } from './ex2/ex2.component';
 import { OperationHistoryComponent } from './ex2/operation-history/operation-history.component';
+import { Ex3Component } from './ex3/ex3.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ShortTransactionComponent } from './ex3/short-transaction/short-transaction.component';
 
 @NgModule({
-  declarations: [AppComponent, Ex1Component, Ex2Component, OperationHistoryComponent],
+  declarations: [
+    AppComponent,
+    Ex1Component,
+    Ex2Component,
+    OperationHistoryComponent,
+    Ex3Component,
+    ShortTransactionComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,6 +36,7 @@ import { OperationHistoryComponent } from './ex2/operation-history/operation-his
     MatFormFieldModule,
     MatRadioModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],

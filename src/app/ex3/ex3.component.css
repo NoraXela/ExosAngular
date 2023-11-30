@@ -1,0 +1,32 @@
+h2 {
+  color: rgb(104, 43, 165);
+  background-color: #e8e8e8;
+  border-radius: 4px;
+}
+
+.ex3Block {
+  background-color: #e8e8e8;
+  border-radius: 4px;
+}
+
+.table {
+  border-collapse: collapse;
+  border-radius: 4px;
+}
+
+.table td,
+.table th {
+  padding: 8px;
+  color: black;
+}
+
+.table tr:nth-child(odd) {
+  background-color: #e8e8e8;
+  border-radius: 4px;
+}
+
+.table th {
+  border: 1px solid white;
+  background-color: rgb(104, 43, 165);
+  color: #e8e8e8;
+}
