@@ -17,6 +17,7 @@ import { OperationHistoryComponent } from './ex2/operation-history/operation-his
 import { Ex3Component } from './ex3/ex3.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShortTransactionComponent } from './ex3/short-transaction/short-transaction.component';
+import { TransactionDetailComponent } from './ex3/transaction-detail/transaction-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ShortTransactionComponent } from './ex3/short-transaction/short-transac
     OperationHistoryComponent,
     Ex3Component,
     ShortTransactionComponent,
+    TransactionDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -22,7 +22,7 @@
     <th>Label</th>
     <th>Date</th>
   </tr>
-  <tr *ngFor="let transaction of transactions">
+  <tr *ngFor="let transaction of transactions" routerLink="/ex3/detail">
     <td>{{ transaction.id }}</td>
     <td>{{ transaction.amount }}</td>
     <td>{{ transaction.balance }}</td>
