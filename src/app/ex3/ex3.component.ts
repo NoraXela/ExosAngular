@@ -27,7 +27,7 @@ export class Ex3Component implements OnInit, AfterViewInit /* , OnDestroy*/ {
   // END TABLE STUFF
 
   myDate: Date = new Date();
-  //private $inActive = new Subject<boolean>();
+  private $inActive = new Subject<boolean>();
   transactionArr: ShortTransaction[] = [];
   transactionString: string = '';
   message: string = '';
@@ -41,6 +41,7 @@ export class Ex3Component implements OnInit, AfterViewInit /* , OnDestroy*/ {
   @ViewChild(MatSort) sort!: MatSort;
 
   public ngOnInit() {
+    this.startClock();
     this.data.currentMessage.subscribe((message) => (this.message = message));
 
     const url: string = '/assets/data/transactions.json';
@@ -106,7 +107,7 @@ export class Ex3Component implements OnInit, AfterViewInit /* , OnDestroy*/ {
   ngOnInit() {
     this.startClock();
   }
-
+  //FOR LATER!!!!!  */
   ngOnDestroy(): void {
     this.$inActive.next(true);
     this.$inActive.unsubscribe();
@@ -119,5 +120,4 @@ export class Ex3Component implements OnInit, AfterViewInit /* , OnDestroy*/ {
         this.myDate = new Date();
       });
   }
-  //FOR LATER!!!!!  */
 }

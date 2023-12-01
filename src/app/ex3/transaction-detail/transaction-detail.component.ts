@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject, interval, takeUntil } from 'rxjs';
 import { Ex3Component } from '../ex3.component';
 import { SendIdService } from '../../send-id.service';
 import { HttpClient, withFetch } from '@angular/common/http';
@@ -11,6 +12,7 @@ import { LongTransaction } from '../transaction.component';
 })
 export class TransactionDetailComponent implements OnInit {
   myDate: Date = new Date();
+  private $inActive = new Subject<boolean>();
   message: string = '';
   transactionUrl: string = '';
   // transaction: string = '';
@@ -29,6 +31,7 @@ export class TransactionDetailComponent implements OnInit {
   public constructor(private http: HttpClient, private data: SendIdService) {}
 
   public ngOnInit(): void {
+    this.startClock();
     console.log('ROUTER LINK');
     this.data.currentMessage.subscribe((message) => (this.message = message));
     //this.transactionUrl = '../../../assets/data/' + this.message + '.json';
@@ -52,5 +55,18 @@ export class TransactionDetailComponent implements OnInit {
     //   this.transactions = response;
     // });
     // console.log(this.transactions);
+  }
+
+  ngOnDestroy(): void {
+    this.$inActive.next(true);
+    this.$inActive.unsubscribe();
+  }
+
+  startClock(): void {
+    interval(1)
+      .pipe(takeUntil(this.$inActive))
+      .subscribe((data) => {
+        this.myDate = new Date();
+      });
   }
 }
