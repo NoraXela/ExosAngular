@@ -1,29 +1,13 @@
+<!-- INPUT -->
 <div class="inputForm">
   <label for="user-name">User name: </label>
   <input id="user-name" [(ngModel)]="userName" placeholder="User name" />
 </div>
 
+<!-- OUTPUT -->
 <p id="outputMessage">Hello {{ userName | uppercase }} !</p>
 
-<!-- Comment line  
-<div>
-  <form action="/action_page.php">
-    <label for="cars">Choose a font:</label>
-    <select
-      [(ngModel)]="selectedFont1"
-      onchange="changefont(selectedFont1)"
-      id="fontSelector"
-    >
-      <option value="verdana">Verdana</option>
-      <option value="impact">Impact</option>
-      <option value="monospace">Monospace</option>
-      <option value="courier">Courier</option>
-    </select>
-    <input type="submit" onclick="getFontValue()" />
-  </form>
-</div>
--->
-
+<!-- FONT SELECTION -->
 <div class="parts">
   <mat-form-field>
     <mat-label>Select a font</mat-label>
@@ -42,6 +26,7 @@
   </mat-form-field>
 </div>
 
+<!-- SIZE SAISIE -->
 <div class="inputForm">
   <label for="font-size">Select a font size: </label>
   <input
@@ -50,11 +35,9 @@
     placeholder="Font size"
     (ngModelChange)="changeSize(fontSize)"
   />
-  <!--
-  <input type="submit" onclick="changeSize(fontSize)" value="go" />
-  -->
 </div>
 
+<!-- RADIO BUTTONS LAYOUT -->
 <div class="inputForm">
   <mat-radio-group
     [(ngModel)]="selectedLayout"

@@ -34,6 +34,8 @@ export class Ex2Component {
       default:
         break;
     }
+
+    // Output operation configuration
     var outputOperation = {
       date: new Date(),
       no1: 0,
@@ -41,22 +43,14 @@ export class Ex2Component {
       no2: 0,
       result: 0,
     };
+
     outputOperation!.date = new Date();
     outputOperation!.no1 = val.no1;
     outputOperation!.selectedOperation = val.selectedOperation;
     outputOperation!.no2 = val.no2;
     outputOperation!.result = this.result;
+
+    //Add operation to list of operations
     this.operationList = this.operationList.concat(outputOperation);
   }
-
-  // clearOperation(operation: FinalOperation, operationList: FinalOperation[]) {
-  //   const index = this.operationList.indexOf(operation);
-  //   console.log('index ' + index);
-  //   if (index !== -1) {
-  //     this.operationList.splice(index, 1);
-  //   }
-  //   console.log(
-  //     'operationList ' + typeof this.operationList + this.operationList
-  //   );
-  // }
 }

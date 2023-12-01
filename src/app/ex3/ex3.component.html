@@ -1,47 +1,5 @@
 <h2>{{ myDate }}</h2>
-<!-- === TABEL FUNCTIONAL DAR FARA FILTRARE === 
 
-<table class="table" matSort>
-  <tr>
-    <th mat-sort-header>ID</th>
-    <th>Amount</th>
-    <th>Balance</th>
-    <th>Label</th>
-    <th>Date</th>
-  </tr>
-  <tr
-    *ngFor="let transaction of transactions"
-    (click)="newMessage(transaction.id)"
-    routerLink="/ex3/detail"
-  >
-    <td>{{ transaction.id }}</td>
-    <td>{{ transaction.amount }}</td>
-    <td>{{ transaction.balance }}</td>
-    <td>{{ transaction.label }}</td>
-    <td>{{ transaction.date }}</td>
-  </tr>
-</table>
--->
-
-<!-- === INCERCARE ESUATA ===  
-<table
-  mat-table
-  *ngIf="dataSource"
-  [dataSource]="dataSource"
-  class="mat-elevation-z8"
-  matSort
->
-  <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column }}</th>
-    <td mat-cell *matCellDef="let emp">{{ emp[column] }}</td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let emprow; columns: displayedColumns" ></tr>
-</table>
-
-
-<!-- === TABEL FUNCTIONAL === -->
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>

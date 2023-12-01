@@ -1,3 +1,4 @@
+<!-- CALCULATION BLOCK -->
 <div class="calcBlock">
   <form #simpleForm="ngForm" (ngSubmit)="calculate(simpleForm.value!)">
     <input type="number" ngModel name="no1" placeholder="No 1" />
@@ -12,10 +13,12 @@
   </form>
 </div>
 
+<!-- RESULT BLOCK -->
 <div class="result">
   <h3>Result: {{ result }}</h3>
 </div>
 
+<!-- HISTORY -->
 <div class="history">
   <h2>History</h2>
   <!--  ngFor part  -->

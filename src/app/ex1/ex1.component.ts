@@ -15,12 +15,6 @@ export class Ex1Component {
     document.getElementById('outputMessage')!.style.fontFamily = selectedFont1;
   }
 
-  /*  getFontValue() {
-    document.getElementById('outputMessage')!.style.fontFamily =
-      document.querySelector('fontSelector');
-  }
-//* */
-
   changeSize(selectedSize: string) {
     let goodSize = selectedSize + 'px';
     document.getElementById('outputMessage')!.style.fontSize = goodSize;

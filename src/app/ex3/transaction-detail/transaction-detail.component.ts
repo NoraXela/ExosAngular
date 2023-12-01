@@ -11,50 +11,37 @@ import { LongTransaction } from '../transaction.component';
   styleUrl: './transaction-detail.component.css',
 })
 export class TransactionDetailComponent implements OnInit {
+  // For datetime
   myDate: Date = new Date();
   private $inActive = new Subject<boolean>();
+
+  //For message received from Ex3 page
   message: string = '';
+
+  //Transaction URL to get ID from Ex3 via message
   transactionUrl: string = '';
-  // transaction: string = '';
   transactionID: string = '';
 
   public transactionString: any;
   public transaction: any;
-  //   id: '',
-  //   amount: 0,
-  //   balance: 0,
-  //   label: '',
-  //   description: '',
-  //   date: '',
-  // };
 
   public constructor(private http: HttpClient, private data: SendIdService) {}
 
   public ngOnInit(): void {
+    // Get Datetime
     this.startClock();
-    console.log('ROUTER LINK');
+
+    // Get transaction ID via message + URL creation
     this.data.currentMessage.subscribe((message) => (this.message = message));
-    //this.transactionUrl = '../../../assets/data/' + this.message + '.json';
     this.transactionID = this.message.slice(1, -1);
     const transactionUrl: string =
       '/assets/data/' + this.transactionID + '.json';
-    console.log('transactionUrl ' + transactionUrl);
+
+    //Get transaction by ID via http
     this.http.get(transactionUrl).subscribe((response) => {
-      console.log('typeof response ' + typeof response);
       this.transactionString = JSON.stringify(response);
-      console.log('TransactionString ' + this.transactionString);
       this.transaction = JSON.parse(this.transactionString);
     });
-
-    // console.log('Message ' + this.message);
-    // this.transaction = JSON.parse(this.message);
-    // console.log('Transaction ' + this.transaction);
-    // const url: string = '/assets/data/transactions.json';
-    // console.log('First url: ' + url);
-    // this.http.get(url).subscribe((response) => {
-    //   this.transactions = response;
-    // });
-    // console.log(this.transactions);
   }
 
   ngOnDestroy(): void {

@@ -21,8 +21,6 @@ export class OperationHistoryComponent {
   @Input() operation!: FinalOperation;
   @Input() operationList!: FinalOperation[];
 
-  //constructor(private ex2Component: Ex2Component) {}
-
   clearThisOperation(
     operation: FinalOperation,
     operationList: FinalOperation[]
@@ -30,9 +28,6 @@ export class OperationHistoryComponent {
     const index = operationList.indexOf(operation);
     if (index !== -1) {
       operationList.splice(index, 1);
-      // const index = this.ex2Component.operationList.indexOf(operation);
-      // if (index !== -1) {
-      //   this.ex2Component.operationList.splice(index, 1);
     }
   }
 }
