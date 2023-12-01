@@ -6,10 +6,11 @@ export interface ShortTransaction {
   date: string;
 }
 
-export interface FinalOperation {
-  date: Date;
-  no1: number;
-  selectedOperation: string;
-  no2: number;
-  result: number;
+export interface LongTransaction {
+  id: string;
+  amount: number;
+  balance: number;
+  label: string;
+  description: string;
+  date: string;
 }

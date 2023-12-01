@@ -1,5 +1,14 @@
 <h2>{{ myDate }}</h2>
-<p>test</p>
+<h3>Transaction</h3>
+<br />
+<div>
+  <p><strong>ID: </strong>{{ transaction.id }}</p>
+  <p><strong>Amount: </strong>{{ transaction.amount }}</p>
+  <p><strong>Balance: </strong>{{ transaction.balance }}</p>
+  <p><strong>Label: </strong>{{ transaction.label }}</p>
+  <p><strong>Description: </strong>{{ transaction.description }}</p>
+  <p><strong>Date: </strong>{{ transaction.date }}</p>
+</div>
 <nav>
   <a routerLink="/ex3">Back</a>
 </nav>

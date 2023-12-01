@@ -4,6 +4,13 @@ h2 {
   border-radius: 4px;
 }
 
+h3 {
+  color: rgb(104, 43, 165);
+  background-color: #e8e8e8;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
 nav a {
   padding: 1rem;
   text-decoration: none;
@@ -16,4 +23,12 @@ nav a {
 nav a:hover {
   color: white;
   background-color: #42545c;
+}
+
+div {
+  background-color: #e8e8e8;
+  border-radius: 4px;
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
 }
