@@ -1,35 +1,80 @@
 import { formatDate } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  OnChanges,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
 import { Subject, interval, timer } from 'rxjs';
 import { takeUntil } from 'rxjs';
 import { HttpClient, withFetch } from '@angular/common/http';
 import { ShortTransaction, LongTransaction } from './transaction.component';
 import { SendIdService } from '../send-id.service';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-ex3',
   templateUrl: './ex3.component.html',
   styleUrl: './ex3.component.css',
 })
-export class Ex3Component implements OnInit /* , OnDestroy*/ {
+export class Ex3Component implements OnInit, AfterViewInit /* , OnDestroy*/ {
+  //* TABLE stuff
+  displayedColumns: string[] = ['id', 'amount', 'balance', 'label', 'date'];
+
+  // END TABLE STUFF
+
   myDate: Date = new Date();
   //private $inActive = new Subject<boolean>();
   transactionArr: ShortTransaction[] = [];
+  transactionString: string = '';
   message: string = '';
 
+  dataSource: any;
   public transactions: any;
   public transaction: any;
+
   public constructor(private http: HttpClient, private data: SendIdService) {}
-  public ngOnInit(): void {
+
+  @ViewChild(MatSort) sort!: MatSort;
+
+  public ngOnInit() {
     this.data.currentMessage.subscribe((message) => (this.message = message));
 
     const url: string = '/assets/data/transactions.json';
     console.log('First url: ' + url);
-    this.http.get(url).subscribe((response) => {
-      this.transactions = response;
-      console.log(this.transactions);
+    this.http.get<ShortTransaction[]>(url).subscribe((response) => {
+      console.log(response[0]);
+      this.transactionString = JSON.stringify(response);
+      console.log('response ' + response);
+      console.log('transactionString ' + this.transactionString);
+      this.transactionArr = response;
+      console.log('transactionArr ' + this.transactionArr);
+      //this.transactionString = '{' + this.transactionString + '}';
+      // console.log('transactionString ' + this.transactionString);
+      // this.transactionArr = JSON.parse(this.transactionString);
+      this.dataSource = new MatTableDataSource(
+        JSON.parse(this.transactionString)
+      );
+      this.dataSource.sort = this.sort;
+      // this.transactions = response;
+      // console.log(typeof this.transactions);
+      // console.log(typeof this.transactionArr);
     });
-    this.transactionArr = this.transactions;
+
+    // const dataSource = new MatTableDataSource(this.transactionArr);
+    //this.transactionString = JSON.stringify(this.transactions);
+    console.log('transactionStringx ' + this.transactionString);
+    // this.transactionArr = JSON.parse(this.transactionString);
+    //* TABLE stuff
+    // const dataSource = new MatTableDataSource(this.transactionArr);
+    //* END TABLE stuff
+  }
+
+  public ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
   }
 
   newMessage(transmittedTransactionID: string) {

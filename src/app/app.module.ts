@@ -18,6 +18,9 @@ import { Ex3Component } from './ex3/ex3.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShortTransactionComponent } from './ex3/short-transaction/short-transaction.component';
 import { TransactionDetailComponent } from './ex3/transaction-detail/transaction-detail.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatSort } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,8 @@ import { TransactionDetailComponent } from './ex3/transaction-detail/transaction
     MatRadioModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatTableModule,
+    MatSortModule,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
