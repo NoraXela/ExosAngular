@@ -1,5 +1,16 @@
 # ExosAngular
 
+Instructions for HN Institut:
+- download code and unzip locally in a location of your desire
+- open folder ExosAngular-master with IDE(I used VSCode)
+- open integrated terminal
+- run commands, one after the other:
+-   npm install -g @angular/cli --force
+-   npm install @angular-devkit/build-angular --force
+-   ng serve
+- open http://localhost:4200 and test ExosAngular application
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
 
 ## Development server
